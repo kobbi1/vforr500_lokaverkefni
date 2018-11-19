@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect("/","/timers");
+Route::get("/timers","TimersController@index")->middleware("auth");
+Route::get('/timers/create', "TimersController@create")->middleware("auth");
+Route::post('/timers', "TimersController@store")->middleware("auth");
+
+
