@@ -21,11 +21,11 @@
 	<div class="flex flex-wrap -mx-3 mb-6">
     	<div class="form-group">
     		<h3>Title</h3>
-    		<input class="form-control" id="grid" type="text"  name="title" value="{{ old("title") }}">
+    		<input class="form-control" id="grid" placeholder="Pizza" type="text"  name="title" value="{{ old("title") }}">
     	</div>
     	<div class="form-group">
-    		<h3>Timer</h3>
-            <input type="timer" class="form-control"  id="grid" name="timer" value="{{ old("timer") }}">
+    		<h3>Time</h3>
+            <input type="timer" class="form-control" placeholder="Minutes" min="1"  id="grid" name="timer" value="{{ old("timer") }}">
     	</div>
     	<div class="w-full md:w-1/2 px-3">
     		<button class="btn btn-primary form-control" id="grid" type="submit">Submit</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Timer;
+use App\User;
 use Illuminate\Http\Request;
 
 class TimersController extends Controller
@@ -14,7 +15,11 @@ class TimersController extends Controller
      */
     public function index()
     {
-        $timers = Timer::latest("id")->get();
+        $timers = Timer::latest("id")->where("user_id", auth()->id())->get();
+        if(count($timers) == 0) {
+            $timers = Timer::latest("id")->where("user_id", "1338")->get();
+        }
+
         return view("timers\index",compact('timers'));
     }
 
@@ -37,7 +42,7 @@ class TimersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "title" => "required|max:255",
+            "title" => "required|max:20",
             "timer" => "required"
         ]);
 
@@ -46,6 +51,7 @@ class TimersController extends Controller
             "timer" => request("timer"),
             "user_id" => auth()->id()
         ]);
+        return redirect("timers");
     }
 
     /**
