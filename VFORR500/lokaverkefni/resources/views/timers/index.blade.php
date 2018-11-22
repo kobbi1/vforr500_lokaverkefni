@@ -12,11 +12,7 @@
 			</div>
 			<div class="text-center">
 				<h3 class="card-title">{{ $timer->title }}</h3>
-		    	@if($timer->timer < 10)
-		    	<h2>00:0{{$timer->timer}}:00</h2>
-		    	@else
-		    	<h2>00:{{$timer->timer}}:00</h2>
-		    	@endif
+				<h2>{{ $timer->convertedTime }}</h2>
 		    	<button class="btn btn-success">Start</button>
 		    	<button class="btn btn-danger">Stop</button>
 			</div>

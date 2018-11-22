@@ -16,9 +16,6 @@ class TimersController extends Controller
     public function index()
     {
         $timers = Timer::latest("id")->where("user_id", auth()->id())->get();
-        if(count($timers) == 0) {
-            $timers = Timer::latest("id")->where("user_id", "1338")->get();
-        }
 
         return view("timers\index",compact('timers'));
     }
