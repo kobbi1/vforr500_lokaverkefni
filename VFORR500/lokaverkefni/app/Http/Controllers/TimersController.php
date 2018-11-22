@@ -13,7 +13,7 @@ class TimersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Timer $timer)
     {
         $timers = Timer::latest("id")->where("user_id", auth()->id())->get();
 
@@ -68,9 +68,9 @@ class TimersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Timer $timer)
     {
-        //
+        return view("timers/edit",compact("timer"));
     }
 
     /**
@@ -80,9 +80,10 @@ class TimersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Timer $timer)
     {
-        //
+        $timer->update(request()->all());
+        return redirect("timers");
     }
 
     /**
@@ -91,8 +92,9 @@ class TimersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Timer $timer)
     {
-        //
+        $timer->delete();
+        return redirect("/timers");
     }
 }

@@ -13,8 +13,15 @@
 Auth::routes();
 
 Route::redirect("/","/timers");
+
 Route::get("/timers","TimersController@index")->middleware("auth");
+
 Route::get('/timers/create', "TimersController@create")->middleware("auth");
 Route::post('/timers', "TimersController@store")->middleware("auth");
+
+Route::get('/timers/{timer}/edit', "TimersController@edit");
+Route::patch('/timers/{timer}', "TimersController@update");
+
+Route::delete('/timers/{timer}', "TimersController@destroy");
 
 
