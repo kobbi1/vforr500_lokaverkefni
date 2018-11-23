@@ -21,7 +21,8 @@
 				<h3 class="card-title">{{ $timer->title }}</h3>
 				<h2 id="{{$timer->id}}">{{ $timer->convertedTime }}</h2>
 		    	<div class="btn btn-success start">Start</div>
-		    	<div class="btn btn-danger stop">Stop</div>
+		    	<div class="btn btn-primary pause" style='display:none'>Pause</div>
+		    	<div class="btn btn-danger stop" style='display:none'>Reset</div>
 			</div>
 	    	
 		</div>

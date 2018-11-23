@@ -13881,7 +13881,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(44);
 
 
 /***/ }),
@@ -13895,9 +13895,9 @@ module.exports = __webpack_require__(43);
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(13);
-__webpack_require__(48);
+__webpack_require__(36);
 
-window.Vue = __webpack_require__(36);
+window.Vue = __webpack_require__(37);
 
 /**
  * The following block of code may be used to automatically register your
@@ -13907,7 +13907,7 @@ window.Vue = __webpack_require__(36);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('example-component', __webpack_require__(40));
 
 // const files = require.context('./', true, /\.vue$/i)
 
@@ -35969,6 +35969,86 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports) {
+
+var countdown = void 0;
+
+var startButtons = document.getElementsByClassName("start");
+var stopButtons = document.getElementsByClassName("stop");
+var pauseButtons = document.getElementsByClassName("pause");
+
+window.onload = function () {
+
+	Object.keys(startButtons).forEach(function (button) {
+
+		startButtons[button].onclick = function (event) {
+			pauseButtons[button].style.display = "inline-block";
+			stopButtons[button].style.display = "inline-block";
+			startButtons[button].style.display = "none";
+			var timeArray = event.path[1].getElementsByTagName("h2")[0].innerHTML.split(":", 3);
+			console.log(timeArray);
+			hours = parseInt(timeArray[0]);
+			minutes = parseInt(timeArray[1]);
+			seconds = parseInt(timeArray[2]);
+			oldHours = hours;
+			oldMinutes = minutes;
+			oldSeconds = seconds;
+			newHours = hours;
+			hoursToMinutes = newHours * 60;
+			var newMinutes = minutes + hoursToMinutes;
+			minutesToSeconds = newMinutes * 60;
+			var newSeconds = seconds + minutesToSeconds;
+			var now = Date.now();
+			var then = now + newSeconds * 1000;
+
+			countdown = setInterval(function () {
+				var secondsLeft = Math.round((then - Date.now()) / 1000);
+				if (secondsLeft < 1) {
+					pauseButtons[button].style.display = "none";
+					stopButtons[button].style.display = "none";
+					clearInterval(countdown);
+				}
+				var displayHours = Math.floor(secondsLeft / 3600);
+				secondsLeft %= 3600;
+				var displayMinutes = Math.floor(secondsLeft / 60);
+				var displaySeconds = secondsLeft % 60;
+				displayHours = String(displayHours).padStart(2, "0");
+				displayMinutes = String(displayMinutes).padStart(2, "0");
+				displaySeconds = String(displaySeconds).padStart(2, "0");
+
+				event.path[1].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+			}, 1000);
+		};
+	});
+
+	Object.keys(stopButtons).forEach(function (button) {
+
+		stopButtons[button].onclick = function (event) {
+			pauseButtons[button].style.display = "none";
+			stopButtons[button].style.display = "none";
+			startButtons[button].style.display = "inline-block";
+			clearInterval(countdown);
+			hours = String(hours).padStart(2, "0");
+			minutes = String(minutes).padStart(2, "0");
+			seconds = String(seconds).padStart(2, "0");
+			oldHours = String(oldHours).padStart(2, "0");
+			oldMinutes = String(oldMinutes).padStart(2, "0");
+			oldSeconds = String(oldSeconds).padStart(2, "0");
+			event.path[1].getElementsByTagName("h2")[0].innerHTML = oldHours + ":" + oldMinutes + ":" + oldSeconds;
+		};
+	});
+
+	Object.keys(pauseButtons).forEach(function (button) {
+		pauseButtons[button].onclick = function (event) {
+			startButtons[button].style.display = "inline-block";
+			pauseButtons[button].style.display = "none";
+			clearInterval(countdown);
+		};
+	});
+};
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46931,10 +47011,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(37).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46990,7 +47070,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(38);
+__webpack_require__(39);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47004,7 +47084,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47197,15 +47277,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(40)
+var normalizeComponent = __webpack_require__(41)
 /* script */
-var __vue_script__ = __webpack_require__(41)
+var __vue_script__ = __webpack_require__(42)
 /* template */
-var __vue_template__ = __webpack_require__(42)
+var __vue_template__ = __webpack_require__(43)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47244,7 +47324,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -47353,7 +47433,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47382,7 +47462,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47425,33 +47505,10 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, exports) {
-
-var startButtons = document.getElementsByClassName("start");
-var stopButtons = document.getElementsByClassName("stop");
-window.onload = function () {
-	console.log(startButtons);
-	Object.keys(startButtons).forEach(function (button) {
-
-		startButtons[button].onclick = function (event) {
-			console.log("I did it!!!!");
-		};
-		console.log(startButtons[button]);
-	});
-
-	console.log("banana");
-};
 
 /***/ })
 /******/ ]);

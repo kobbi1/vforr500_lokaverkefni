@@ -1,15 +1,76 @@
+let countdown;
+
 var startButtons = document.getElementsByClassName("start");
 var stopButtons = document.getElementsByClassName("stop");
+var pauseButtons = document.getElementsByClassName("pause");
+
 window.onload = function() {
-	console.log(startButtons);
+
 	Object.keys(startButtons).forEach(function(button){
 
 		startButtons[button].onclick = function(event){
-			console.log("I did it!!!!")
+			pauseButtons[button].style.display = "inline-block";
+			stopButtons[button].style.display = "inline-block";
+			startButtons[button].style.display = "none"
+			var timeArray = event.path[1].getElementsByTagName("h2")[0].innerHTML.split(":", 3);
+			console.log(timeArray);
+			hours = parseInt(timeArray[0]);
+			minutes = parseInt(timeArray[1]);
+			seconds = parseInt(timeArray[2]);
+			oldHours = hours;
+			oldMinutes = minutes;
+			oldSeconds = seconds
+			newHours = hours;
+			hoursToMinutes = newHours*60;
+			var newMinutes = minutes + hoursToMinutes;
+			minutesToSeconds = newMinutes*60;
+			var newSeconds = seconds + minutesToSeconds;
+			const now = Date.now();
+			const then = now + newSeconds*1000;
+
+			countdown = setInterval(function() {
+				var secondsLeft = Math.round((then - Date.now()) / 1000);
+				if(secondsLeft < 1) {
+					pauseButtons[button].style.display = "none";
+					stopButtons[button].style.display = "none";
+					clearInterval(countdown);
+				}
+				let displayHours = Math.floor(secondsLeft / 3600);
+				secondsLeft %= 3600;
+				let displayMinutes = Math.floor(secondsLeft / 60);
+				let displaySeconds = secondsLeft % 60;
+				displayHours = String(displayHours).padStart(2,"0");
+				displayMinutes = String(displayMinutes).padStart(2,"0");
+				displaySeconds = String(displaySeconds).padStart(2,"0");
+
+				event.path[1].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+			},1000)
 		}
-		console.log(startButtons[button])
 	}); 
 
-	console.log("banana")
-};
 
+	Object.keys(stopButtons).forEach(function(button) {
+
+		stopButtons[button].onclick = function(event) {
+			pauseButtons[button].style.display = "none";
+			stopButtons[button].style.display = "none";
+			startButtons[button].style.display = "inline-block"
+			clearInterval(countdown);
+			hours = String(hours).padStart(2,"0");
+			minutes = String(minutes).padStart(2,"0");
+			seconds = String(seconds).padStart(2,"0");
+			oldHours = String(oldHours).padStart(2,"0");
+			oldMinutes = String(oldMinutes).padStart(2,"0");
+			oldSeconds = String(oldSeconds).padStart(2,"0");
+			event.path[1].getElementsByTagName("h2")[0].innerHTML = oldHours + ":" + oldMinutes + ":" + oldSeconds;
+		}
+	})
+
+	Object.keys(pauseButtons).forEach(function(button) {
+		pauseButtons[button].onclick = function(event) {
+			startButtons[button].style.display = "inline-block";
+			pauseButtons[button].style.display = "none";
+			clearInterval(countdown);
+		}
+	})
+};
