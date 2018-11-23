@@ -24,7 +24,7 @@
     		<input class="form-control text-center" id="grid" placeholder="Pizza" type="text"  name="title" value="{{ old("title") }}">
     	</div>
     	<div class="form-group">
-    		<h3 class="text-center5">Time</h3>
+    		<h3 class="text-center">Time</h3>
             <input type="number" class="form-control text-center" placeholder="Minutes" min="1"  id="grid" name="timer" value="{{ old("timer") }}">
     	</div>
     	<div class="w-full md:w-1/2 px-3">

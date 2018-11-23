@@ -18,10 +18,10 @@
 	    		</form>
 			</div>
 			<div class="text-center">
-				<h3 class="card-title" id="{{$timer->id}}">{{ $timer->title }}</h3>
-				<h2>{{ $timer->convertedTime }}</h2>
-		    	<div class="btn btn-success">Start</div>
-		    	<div class="btn btn-danger">Stop</div>
+				<h3 class="card-title">{{ $timer->title }}</h3>
+				<h2 id="{{$timer->id}}">{{ $timer->convertedTime }}</h2>
+		    	<div class="btn btn-success start">Start</div>
+		    	<div class="btn btn-danger stop">Stop</div>
 			</div>
 	    	
 		</div>
