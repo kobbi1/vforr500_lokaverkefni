@@ -7,13 +7,11 @@ var pauseButtons = document.getElementsByClassName("pause");
 window.onload = function() {
 
 	Object.keys(startButtons).forEach(function(button){
-
 		startButtons[button].onclick = function(event){
 			pauseButtons[button].style.display = "inline-block";
 			stopButtons[button].style.display = "inline-block";
 			startButtons[button].style.display = "none"
 			var timeArray = event.path[1].getElementsByTagName("h2")[0].innerHTML.split(":", 3);
-			console.log(timeArray);
 			hours = parseInt(timeArray[0]);
 			minutes = parseInt(timeArray[1]);
 			seconds = parseInt(timeArray[2]);
@@ -52,17 +50,17 @@ window.onload = function() {
 	Object.keys(stopButtons).forEach(function(button) {
 
 		stopButtons[button].onclick = function(event) {
+			clearInterval(countdown);
 			pauseButtons[button].style.display = "none";
 			stopButtons[button].style.display = "none";
 			startButtons[button].style.display = "inline-block"
-			clearInterval(countdown);
 			hours = String(hours).padStart(2,"0");
 			minutes = String(minutes).padStart(2,"0");
 			seconds = String(seconds).padStart(2,"0");
 			oldHours = String(oldHours).padStart(2,"0");
 			oldMinutes = String(oldMinutes).padStart(2,"0");
 			oldSeconds = String(oldSeconds).padStart(2,"0");
-			event.path[1].getElementsByTagName("h2")[0].innerHTML = oldHours + ":" + oldMinutes + ":" + oldSeconds;
+			event.path[1].getElementsByTagName("h2")[0].innerHTML = event.path[1].getElementsByTagName("h2")[0].className;
 		}
 	})
 
