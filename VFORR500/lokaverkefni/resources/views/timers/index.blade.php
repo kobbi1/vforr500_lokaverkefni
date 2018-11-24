@@ -5,12 +5,12 @@
 @foreach($timers as $timer)
 	<div class="card mb-4 w-50 mx-auto">
 		<div class="card-body">
-			<div style="width:45%" class="text-left ml-0  d-inline-block">
+			<div class="text-left ml-0  d-inline-block editButtonDiv">
 				<a href="/timers/{{$timer->id}}/edit">
 					<button type="button" class="btn btn-outline-primary text-left">Edit</button>
 				</a>
 			</div>
-			<div style="width:54%" class="text-right mr-0 d-inline-block ">
+			<div class="text-right mr-0 d-inline-block deleteButtonDiv">
 				<form method="POST" action="{{ $timer->path() }}">
 	    			@csrf
 	    			@method("DELETE")
@@ -21,8 +21,8 @@
 				<h3 class="card-title">{{ $timer->title }}</h3>
 				<h2 class="{{$timer->convertedTime}}">{{ $timer->convertedTime }}</h2>
 		    	<div class="btn btn-success start">Start</div>
-		    	<div class="btn btn-primary pause" style='display:none'>Pause</div>
-		    	<div class="btn btn-danger stop" style='display:none'>Reset</div>
+		    	<div class="btn btn-primary pause">Pause</div>
+		    	<div class="btn btn-danger stop">Reset</div>
 			</div>
 	    	
 		</div>

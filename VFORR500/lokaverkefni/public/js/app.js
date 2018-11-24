@@ -36003,7 +36003,6 @@ window.onload = function () {
 				var secondsLeft = Math.round((then - Date.now()) / 1000);
 				if (secondsLeft < 1) {
 					pauseButtons[button].style.display = "none";
-					stopButtons[button].style.display = "none";
 					clearInterval(countdown);
 				}
 				var displayHours = Math.floor(secondsLeft / 3600);
