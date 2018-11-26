@@ -12,20 +12,25 @@
   background-color: rgb(35,35,35);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
-.card {
+.card, .modal-content {
 	border:none;
 	box-shadow: 5px 4px 8px 5px #171616;
 }
+.modal{
+	margin-top:10%;
+	text-align:center;
+}
+
 .customCard {
 	border:none;
 	padding: 30px 35px 35px 35px;
 	box-shadow: 5px 4px 8px 5px #171616;
 }
-.card-header {
+.card-header, .modal-header, .modal-footer{
 	border-bottom:1px solid black !important;
 	background-color: rgb(35,35,35) !important;
 }
-.card-body {
+.card-body, .modal-body {
 	background-color: rgb(35,35,35) !important;
 }
 .cardCSS {
