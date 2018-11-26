@@ -10467,9 +10467,55 @@ a.text-dark:focus {
 }
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: #232323;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.card {
+  border: none;
+  -webkit-box-shadow: 5px 4px 8px 5px #171616;
+          box-shadow: 5px 4px 8px 5px #171616;
+}
+
+.customCard {
+  border: none;
+  padding: 30px 35px 35px 35px;
+  -webkit-box-shadow: 5px 4px 8px 5px #171616;
+          box-shadow: 5px 4px 8px 5px #171616;
+}
+
+.card-header {
+  border-bottom: 1px solid black !important;
+  background-color: #232323 !important;
+}
+
+.card-body {
+  background-color: #232323 !important;
+}
+
+.cardCSS {
+  background: #232323;
+  color: white;
+  -webkit-box-shadow: 5px 4px 8px 5px #171616;
+          box-shadow: 5px 4px 8px 5px #171616;
+  border: none;
+}
+
+.dropdown-menu-right {
+  -webkit-box-shadow: 3px 2px 6px 3px #171616;
+          box-shadow: 3px 2px 6px 3px #171616;
+  background: #232323 !important;
+}
+
+.dropdown-item {
+  background: #232323 !important;
+}
+
+h2,
+h3,
+a {
+  color: white !important;
 }
 
 .pause {
@@ -10486,6 +10532,11 @@ a.text-dark:focus {
 
 .deleteButtonDiv {
   width: 54%;
+}
+
+body {
+  color: white;
+  background: #202020;
 }
 
 .clock {

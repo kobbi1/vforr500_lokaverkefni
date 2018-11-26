@@ -8,7 +8,7 @@
 <form  action="{{ $timer->path() }}" method="POST" class="w-full max-w-md">
 	@csrf
     @method("patch")
-	<div class="flex flex-wrap -mx-3 mb-6">
+	<div class="flex flex-wrap -mx-3 mb-6 customCard">
     	<div class="form-group">
     		<h3 class="text-center">Title</h3>
     		<input class="form-control" id="grid" placeholder="Pizza" type="text"  name="title" value="{{$timer->title}}">

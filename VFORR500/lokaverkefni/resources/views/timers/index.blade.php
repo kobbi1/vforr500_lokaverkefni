@@ -3,8 +3,8 @@
 @section("content")
 <h1 class="text-center">Your Timers</h1>
 @foreach($timers as $timer)
-	<div class="card mb-4 w-50 mx-auto">
-		<div class="card-body">
+	<div class="card mb-4 w-50 mx-auto" style="border:none;">
+		<div class="card-body cardCSS">
 			<div class="text-left ml-0  d-inline-block editButtonDiv">
 				<a href="/timers/{{$timer->id}}/edit">
 					<button type="button" class="btn btn-outline-primary text-left">Edit</button>
