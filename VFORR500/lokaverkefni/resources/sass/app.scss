@@ -27,8 +27,14 @@
 	box-shadow: 5px 4px 8px 5px #171616;
 }
 .card-header, .modal-header, .modal-footer{
-	border-bottom:1px solid black !important;
+	justify-content:center;
 	background-color: rgb(35,35,35) !important;
+}
+.modal-footer {
+	border:none;
+}
+.modal-header {
+	border-bottom:1px solid black !important;
 }
 .card-body, .modal-body {
 	background-color: rgb(35,35,35) !important;
@@ -52,11 +58,13 @@ h2,h3,a {
 }
 
 .pause {
-	display:none;
+	display:inline-block;
 }
-
+.buttons {
+	background:rgb(35,35,35);
+}
 .stop {
-	display:none;
+	display:inline-block;
 }
 
 .editButtonDiv {

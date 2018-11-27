@@ -3,15 +3,21 @@ let countdown;
 var startButtons = document.getElementsByClassName("start");
 var stopButtons = document.getElementsByClassName("stop");
 var pauseButtons = document.getElementsByClassName("pause");
-
 window.onload = function() {
-
+	setonclick = function(modal) {
+		return modal.onclick = clearInterval(countdown);
+	}
 	Object.keys(startButtons).forEach(function(button){
 		startButtons[button].onclick = function(event){
+			
+			var modalBackdrop = document.getElementsByClassName("modal-backdrop");
+			modalBackdrop[0] = setonclick(modalBackdrop[0]);
+
+			console.log(modalBackdrop)
 			pauseButtons[button].style.display = "inline-block";
 			stopButtons[button].style.display = "inline-block";
 			startButtons[button].style.display = "none"
-			var timeArray = event.path[1].getElementsByTagName("h2")[0].innerHTML.split(":", 3);
+			var timeArray = event.path[2]["parentElement"]["childNodes"][0]["children"][1]["children"][0].innerHTML.split(":", 3);
 			hours = parseInt(timeArray[0]);
 			minutes = parseInt(timeArray[1]);
 			seconds = parseInt(timeArray[2]);
@@ -40,11 +46,10 @@ window.onload = function() {
 				displayMinutes = String(displayMinutes).padStart(2,"0");
 				displaySeconds = String(displaySeconds).padStart(2,"0");
 
-				event.path[1].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+				event.path[2].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 			},1000)
 		}
 	}); 
-
 
 	Object.keys(stopButtons).forEach(function(button) {
 
@@ -59,7 +64,7 @@ window.onload = function() {
 			oldHours = String(oldHours).padStart(2,"0");
 			oldMinutes = String(oldMinutes).padStart(2,"0");
 			oldSeconds = String(oldSeconds).padStart(2,"0");
-			event.path[1].getElementsByTagName("h2")[0].innerHTML = event.path[1].getElementsByTagName("h2")[0].className;
+			event.path[2].getElementsByTagName("h2")[0].innerHTML = event.path[2].getElementsByTagName("h2")[0].className;
 		}
 	})
 

@@ -10494,8 +10494,18 @@ a.text-dark:focus {
 .card-header,
 .modal-header,
 .modal-footer {
-  border-bottom: 1px solid black !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #232323 !important;
+}
+
+.modal-footer {
+  border: none;
+}
+
+.modal-header {
+  border-bottom: 1px solid black !important;
 }
 
 .card-body,
@@ -10528,11 +10538,15 @@ a {
 }
 
 .pause {
-  display: none;
+  display: inline-block;
+}
+
+.buttons {
+  background: #232323;
 }
 
 .stop {
-  display: none;
+  display: inline-block;
 }
 
 .editButtonDiv {
