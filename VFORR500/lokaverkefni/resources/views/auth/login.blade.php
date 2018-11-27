@@ -57,8 +57,8 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                <a class="btn btn-link" href="https://www.facebook.com/jakobdaniel98">
+                                    © Jakob Daníel Vigfússon
                                 </a>
                             </div>
                         </div>

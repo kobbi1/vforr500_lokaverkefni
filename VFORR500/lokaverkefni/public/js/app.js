@@ -35976,17 +35976,13 @@ var countdown = void 0;
 var startButtons = document.getElementsByClassName("start");
 var stopButtons = document.getElementsByClassName("stop");
 var pauseButtons = document.getElementsByClassName("pause");
+var closeButtons = document.getElementsByClassName("closeButton");
+
 window.onload = function () {
-	setonclick = function setonclick(modal) {
-		return modal.onclick = clearInterval(countdown);
-	};
+
 	Object.keys(startButtons).forEach(function (button) {
 		startButtons[button].onclick = function (event) {
 
-			var modalBackdrop = document.getElementsByClassName("modal-backdrop");
-			modalBackdrop[0] = setonclick(modalBackdrop[0]);
-
-			console.log(modalBackdrop);
 			pauseButtons[button].style.display = "inline-block";
 			stopButtons[button].style.display = "inline-block";
 			startButtons[button].style.display = "none";
@@ -36021,6 +36017,23 @@ window.onload = function () {
 
 				event.path[2].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 			}, 1000);
+		};
+	});
+
+	Object.keys(closeButtons).forEach(function (button) {
+
+		closeButtons[button].onclick = function (event) {
+			clearInterval(countdown);
+			pauseButtons[button].style.display = "none";
+			stopButtons[button].style.display = "none";
+			startButtons[button].style.display = "inline-block";
+			hours = String(hours).padStart(2, "0");
+			minutes = String(minutes).padStart(2, "0");
+			seconds = String(seconds).padStart(2, "0");
+			oldHours = String(oldHours).padStart(2, "0");
+			oldMinutes = String(oldMinutes).padStart(2, "0");
+			oldSeconds = String(oldSeconds).padStart(2, "0");
+			event.path[2].getElementsByTagName("h2")[0].innerHTML = event.path[2].getElementsByTagName("h2")[0].className;
 		};
 	});
 

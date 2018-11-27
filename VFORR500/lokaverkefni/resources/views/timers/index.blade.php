@@ -36,7 +36,9 @@
 				      	<div class="btn btn-primary pause">Pause</div>
 			    		<div class="btn btn-danger stop">Reset</div>
 			      	</div>
-			      	<div class="modal-footer"></div>
+			      	<div class="modal-footer">
+			      		<span class="button btn-secondary closeButton" data-dismiss="modal" aria-label="Close">Close</span>
+			      	</div>
 			    </div>
 			  </div>
 			</div>

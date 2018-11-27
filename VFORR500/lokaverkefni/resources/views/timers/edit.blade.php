@@ -18,7 +18,7 @@
             <input type="number" class="form-control" placeholder="Minutes" min="1"  id="grid" name="timer" value="{{$timer->timer}}">
     	</div>
     	<div class="w-full md:w-1/2 px-3">
-    		<button class="btn btn-primary form-control" id="grid" type="submit">Submit</button>
+    		<button class="btn btn-primary form-control" id="grid" type="submit">Submit Changes</button>
     	</div>
 	</div>
 </form>
