@@ -35977,6 +35977,7 @@ var startButtons = document.getElementsByClassName("start");
 var stopButtons = document.getElementsByClassName("stop");
 var pauseButtons = document.getElementsByClassName("pause");
 var closeButtons = document.getElementsByClassName("closeButton");
+var title_el = document.querySelector("title");
 var audio = new Audio('/sounds/alarm.wav');
 window.onload = function () {
 
@@ -36016,7 +36017,7 @@ window.onload = function () {
 				displayHours = String(displayHours).padStart(2, "0");
 				displayMinutes = String(displayMinutes).padStart(2, "0");
 				displaySeconds = String(displaySeconds).padStart(2, "0");
-
+				title_el.innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 				event.path[2].getElementsByTagName("h2")[0].innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 			}, 1000);
 		};
@@ -36036,6 +36037,7 @@ window.onload = function () {
 			oldHours = String(oldHours).padStart(2, "0");
 			oldMinutes = String(oldMinutes).padStart(2, "0");
 			oldSeconds = String(oldSeconds).padStart(2, "0");
+			title_el.innerHTML = "Timer";
 			event.path[2].getElementsByTagName("h2")[0].innerHTML = event.path[2].getElementsByTagName("h2")[0].className;
 		};
 	});
@@ -36054,6 +36056,7 @@ window.onload = function () {
 			oldHours = String(oldHours).padStart(2, "0");
 			oldMinutes = String(oldMinutes).padStart(2, "0");
 			oldSeconds = String(oldSeconds).padStart(2, "0");
+			title_el.innerHTML = "Timer";
 			event.path[2].getElementsByTagName("h2")[0].innerHTML = event.path[2].getElementsByTagName("h2")[0].className;
 		};
 	});
