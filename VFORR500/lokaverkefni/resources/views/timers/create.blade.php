@@ -25,7 +25,7 @@
     	</div>
     	<div class="form-group">
     		<h3 class="text-center">Time</h3>
-            <input type="number" class="form-control text-center" placeholder="Minutes" min="1"  id="grid" name="timer" value="{{ old("timer") }}">
+            <input type="number" class="form-control text-center" placeholder="Minutes" min="1" max="5999"  id="grid" name="timer" value="{{ old("timer") }}">
     	</div>
     	<div class="w-full md:w-1/2 px-3">
     		<button class="btn btn-primary form-control" id="grid" type="submit">Submit</button>

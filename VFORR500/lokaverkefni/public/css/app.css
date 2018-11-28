@@ -10472,11 +10472,16 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.card,
-.modal-content {
+.card {
   border: none;
   -webkit-box-shadow: 5px 4px 8px 5px #171616;
           box-shadow: 5px 4px 8px 5px #171616;
+}
+
+.modal-content {
+  border: none;
+  -webkit-box-shadow: 1px 1px 1px 1px #171616;
+          box-shadow: 1px 1px 1px 1px #171616;
 }
 
 .modal {
@@ -10485,8 +10490,11 @@ a.text-dark:focus {
 }
 
 .customCard {
+  text-align: center;
   border: none;
   padding: 30px 35px 35px 35px;
+  width: 50%;
+  margin-left: 25%;
   -webkit-box-shadow: 5px 4px 8px 5px #171616;
           box-shadow: 5px 4px 8px 5px #171616;
 }

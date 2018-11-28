@@ -35977,7 +35977,7 @@ var startButtons = document.getElementsByClassName("start");
 var stopButtons = document.getElementsByClassName("stop");
 var pauseButtons = document.getElementsByClassName("pause");
 var closeButtons = document.getElementsByClassName("closeButton");
-
+var audio = new Audio('/sounds/alarm.wav');
 window.onload = function () {
 
 	Object.keys(startButtons).forEach(function (button) {
@@ -36006,6 +36006,8 @@ window.onload = function () {
 				if (secondsLeft < 1) {
 					pauseButtons[button].style.display = "none";
 					clearInterval(countdown);
+					audio.play();
+					audio.loop = true;
 				}
 				var displayHours = Math.floor(secondsLeft / 3600);
 				secondsLeft %= 3600;
@@ -36024,6 +36026,7 @@ window.onload = function () {
 
 		closeButtons[button].onclick = function (event) {
 			clearInterval(countdown);
+			audio.pause();
 			pauseButtons[button].style.display = "none";
 			stopButtons[button].style.display = "none";
 			startButtons[button].style.display = "inline-block";
@@ -36041,6 +36044,7 @@ window.onload = function () {
 
 		stopButtons[button].onclick = function (event) {
 			clearInterval(countdown);
+			audio.pause();
 			pauseButtons[button].style.display = "none";
 			stopButtons[button].style.display = "none";
 			startButtons[button].style.display = "inline-block";
